@@ -25,7 +25,10 @@ y1 = [a * float(row["px"]) for row in rows] # angular size, rad
 # least-squares fit through the origin: y1 ~ m * x1
 slope = sum(x * y for x, y in zip(x1, y1)) / sum(x ** 2 for x in x1)
 
-print(slope)
+distance = 1.0 / slope
+
+print(f"Distance to flagpole: {round(distance, 2)}m")
+print(f"                     ({distance}m)")
 
 xFit = [0.0, 7.0] # from the origin to the right edge of the plot
 plot.plot(xFit, [slope * x for x in xFit], color = "#0b3d91", label = "Line of Best Fit", zorder = 1)
