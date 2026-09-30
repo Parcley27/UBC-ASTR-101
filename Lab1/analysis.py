@@ -4,19 +4,28 @@ import csv
 import matplotlib.pyplot as plot
 
 q = 43.3 # usable diagonal, mm
-l = 6.0 # physical focal length, mm
-l35 = 52.0 # 35mm eq focal length (iphone reported), mm
+
+#l = 6.0 # physical focal length, mm, iPhone
+#l35 = 52.0 # 35mm eq focal length (iPhone reported), mm
+
+l = 75.0 # physical focal length, mm, canon camera
+l35 = 75.0 # 35mm eq focal length, canon camera, mm
 
 D = (q * l) / l35  # sensor usable diagonal, mm
 
-Nx = 3024.0 # image x pixel count, px
-Ny = 4032.0 # image y pixel count, px
+#Nx = 3024.0 # image x pixel count, px, iPhone
+#Ny = 4032.0 # image y pixel count, px, iPhone
+
+Nx = 5184.0 # image x pixel count, px, canon camera
+Ny = 3456.0 # image y pixel count, px, canon camera
 
 w = D / (math.sqrt(Nx ** 2 + Ny ** 2)) # pixel width, mm/px
 
 a = w / l # angular size/px, rad/px
 
-with open("images.csv") as data:
+object = "ship"
+
+with open(object + ".csv") as data:
     rows = list(csv.DictReader(data))
 
 x1 = [float(row["baseline"]) for row in rows]
@@ -27,19 +36,28 @@ slope = sum(x * y for x, y in zip(x1, y1)) / sum(x ** 2 for x in x1)
 
 distance = 1.0 / slope
 
-print(f"Distance to flagpole: {round(distance, 2)}m")
-print(f"                     ({distance}m)")
+print(f"Distance to {object}: {round(distance, 2)}m")
+print(f"{distance}m")
 
-xFit = [0.0, 7.0] # from the origin to the right edge of the plot
+# center data around the middle of the graph
+def centeredUpper(values):
+    return min(values) + max(values)
+
+xMax = centeredUpper(x1)
+yMax = centeredUpper(y1)
+
+xFit = [0.0, xMax]
 plot.plot(xFit, [slope * x for x in xFit], color = "#0b3d91", label = "Line of Best Fit", zorder = 1)
 
 plot.scatter(x1, y1, color = "#FC3D21", label = "Observation Data", zorder = 2)
 
 plot.xlabel("Baseline (meters)")
-plot.ylabel("Angular Size (radians)")
+plot.ylabel("Angular Seperation (radians)")
+plot.title(f"Angular Separation of {object[0].upper() + object[1:]} vs. Baseline")
 
-plot.axis((0.0, 7.0, 0.0, 0.025))
+plot.axis((0.0, xMax, 0.0, yMax))
 
+plot.annotate(f"Slope = {slope:.5g} rad/m", xy = (0.97, 0.03), xycoords = "axes fraction", ha = "right", va = "bottom")
 plot.legend()
 
-plot.savefig("graph.png", dpi = 300)
+plot.savefig(f"{object}_graph.png", dpi = 300)
