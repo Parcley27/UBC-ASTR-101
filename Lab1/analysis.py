@@ -21,9 +21,13 @@ Ny = 3456.0 # image y pixel count, px, canon camera
 
 w = D / (math.sqrt(Nx ** 2 + Ny ** 2)) # pixel width, mm/px
 
+wOverride = 4.3e-3 # pixel width override for canon camera, mm/px
+if wOverride is not None:
+    w = wOverride
+
 a = w / l # angular size/px, rad/px
 
-object = "ship"
+object = "buoy"
 
 with open(object + ".csv") as data:
     rows = list(csv.DictReader(data))
@@ -52,7 +56,7 @@ plot.plot(xFit, [slope * x for x in xFit], color = "#0b3d91", label = "Line of B
 plot.scatter(x1, y1, color = "#FC3D21", label = "Observation Data", zorder = 2)
 
 plot.xlabel("Baseline (meters)")
-plot.ylabel("Angular Seperation (radians)")
+plot.ylabel("Angular Separation (radians)")
 plot.title(f"Angular Separation of {object[0].upper() + object[1:]} vs. Baseline")
 
 plot.axis((0.0, xMax, 0.0, yMax))
