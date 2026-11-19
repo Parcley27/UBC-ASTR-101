@@ -1,0 +1,30 @@
+FLICKER Choir predictions (Soprano)
+Generated:   2026-11-19T14:39:00
+Mode:        Soprano
+Choir dir:   /Users/pierce/Documents/Coding/FLICKER/FLICKER/Choir/models  (10/10 models)
+Input:       /private/tmp/claude-501/-Users-pierce-Documents-Coding-FLICKER/87520755-40c0-4f69-8586-4df6f918e462/scratchpad/infer/both
+Device:      cpu
+Threshold:   0.29
+TCE count:   1
+File count:  1
+
+Predicted class distribution:
+  E:      1  (100.0%)
+  S:      0  (  0.0%)
+  B:      0  (  0.0%)
+  J:      0  (  0.0%)
+
+Soprano votes (any model P_E >= 0.29): 1
+  usedThreshold=true  -> soprano vote fired; prediction is E
+  usedThreshold=false -> no model voted E; fallback to Baritone argmax
+
+Note: P_E in the CSV is the mean P_E across all models.
+      maxP_E is the decision variable (max P_E across models).
+      The soprano threshold is applied to maxP_E, not to P_E.
+
+Top 20 highest-maxP_E TCEs:
+  rank      P_E   maxP_E  pred  ticID           obsIdx    sourceFile
+     1   0.9889   0.9924     E  420814525       0         hd209458.h5
+
+Per-source-file TCE counts:
+       1  hd209458.h5

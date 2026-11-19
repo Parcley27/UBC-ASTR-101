@@ -1,0 +1,35 @@
+{
+ "s56": {
+  "files": [
+   "hd209458/420814525/tic420814525_sunk_['QLP']_[200.] ss.fits"
+  ],
+  "row": {
+   "Epoch": 2826.781115114668,
+   "Period": 3.5245787289364467,
+   "Duration": 0.108,
+   "Depth": 14878.227363134016,
+   "SMass": 1.13,
+   "SRad": 1.18655,
+   "SRadEst": 1.18655,
+   "Tmag": 7.1274,
+   "Split": "inference"
+  }
+ },
+ "s56+s82": {
+  "files": [
+   "hd209458/direct/mastDownload/HLSP/hlsp_qlp_tess_ffi_s0056-0000000420814525_tess_v01_llc/hlsp_qlp_tess_ffi_s0056-0000000420814525_tess_v01_llc.fits",
+   "hd209458/direct/mastDownload/HLSP/hlsp_qlp_tess_ffi_s0082-0000000420814525_tess_v01_llc/hlsp_qlp_tess_ffi_s0082-0000000420814525_tess_v01_llc.fits"
+  ],
+  "row": {
+   "Epoch": 2826.781115114668,
+   "Period": 3.524748737436872,
+   "Duration": 0.108,
+   "Depth": 15116.606440831285,
+   "SMass": 1.13,
+   "SRad": 1.18655,
+   "SRadEst": 1.18655,
+   "Tmag": 7.1274,
+   "Split": "inference"
+  }
+ }
+}

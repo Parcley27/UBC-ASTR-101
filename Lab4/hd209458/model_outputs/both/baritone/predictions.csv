@@ -1,0 +1,2 @@
+sourceFile,ticID,obsIdx,P_E,P_S,P_B,P_J,maxP_E,predicted,usedThreshold
+hd209458.h5,420814525,0,0.988851,0.003647,0.003873,0.003630,0.992398,E,false

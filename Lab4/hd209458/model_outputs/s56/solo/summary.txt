@@ -1,0 +1,23 @@
+FLICKER Solo predictions
+Generated:   2026-11-19T14:38:56
+Checkpoint:  /Users/pierce/Documents/Coding/FLICKER/FLICKER/Solo/best.pt
+Input:       /private/tmp/claude-501/-Users-pierce-Documents-Coding-FLICKER/87520755-40c0-4f69-8586-4df6f918e462/scratchpad/infer/s56
+Device:      cpu
+Threshold:   0.29
+TCE count:   1
+File count:  1
+
+Predicted class distribution:
+  E:      1  (100.0%)
+  S:      0  (  0.0%)
+  B:      0  (  0.0%)
+  J:      0  (  0.0%)
+
+E predictions forced by threshold (P_E >= 0.29, argmax != E): 0
+
+Top 20 highest-P(E) TCEs:
+  rank      P_E  pred  ticID           obsIdx    sourceFile
+     1   0.9924     E  420814525       0         hd209458.h5
+
+Per-source-file TCE counts:
+       1  hd209458.h5
